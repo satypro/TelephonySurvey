@@ -2,23 +2,29 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 
-
-
 router.get('/start', function(req, res, next) {
 
     let from = req.query.from;
     
-    var dataString = 'From='+from+'&CallerId=09243422233&Url=http://my.exotel.in/exoml/start/130933';
+    var dataString = {
+        From : '+918971273689',
+        CallerId :'08039510876',
+        Url :'http://my.exotel.in/exoml/start/130933'
+    };
 
     var options = {
-        url: 'https://afterall:f219d817314a3db67e8b786422c5af19acc44098@api.exotel.com/v1/Accounts/afterall/Calls/connect',
+        url: 'https://afterall:f219d817314a3db67e8b786422c5af19acc44098@api.exotel.in/v1/Accounts/afterall/Calls/connect',
         method: 'POST',
-        body: dataString
+        formData: dataString
     };
     
     request.post(options,function(error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body);
+        }
+        else
+        {
+            console.log(error);
         }
     });
     res.send('Request Placed...');
@@ -26,7 +32,8 @@ router.get('/start', function(req, res, next) {
 
 router.get('/text', function(req, res, next) {
 
-    res.send('How was your overall experience. Please rate in between one and four');
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('How was your overall experience. Please rate in between one and four');
 });
 
 
