@@ -13,7 +13,7 @@ router.get('/start', function(req, res, next) {
     };
 
     var options = {
-        url: 'https://afterall:f219d817314a3db67e8b786422c5af19acc44098@api.exotel.in/v1/Accounts/afterall/Calls/connect',
+        url: 'https://sid:yourkey@api.exotel.in/v1/Accounts/afterall/Calls/connect',
         method: 'POST',
         formData: dataString
     };
