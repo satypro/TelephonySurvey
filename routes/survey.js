@@ -7,8 +7,8 @@ router.get('/start', function(req, res, next) {
     let from = req.query.from;
     
     var dataString = {
-        From : '+918971273689',
-        CallerId :'08039510876',
+        From : '+91997127****', // Your mobile number
+        CallerId :'08039510***', // Caller Id
         Url :'http://my.exotel.in/exoml/start/130933'
     };
 
